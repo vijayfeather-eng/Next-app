@@ -1,0 +1,88 @@
+Mapping
+map() என்பது ஒரே மாதிரி இருக்கும் பல data-வை loop செய்து, ஒவ்வொன்றுக்கும் UI உருவாக்க use பண்ணுறது.
+ex: 
+const services = ["Web Design", "App Development", "SEO"];
+
+{services.map((service) => (
+  <p>{service}</p>
+))}
+
+output:
+Web Design
+App Development
+SEO
+
+
+Next.js UI = 3 முக்கிய விஷயம்
+
+1. JSX(JavaScript XML) / TSX(TypeScript XML)
+      ↓
+   Structure
+
+2. CSS
+      ↓
+   Design / Styling
+
+3. Components
+      ↓
+   UI-ஐ சிறிய பகுதிகளாக பிரித்தல்
+
+
+"use client";
+
+import { useState } from "react";
+
+export default function Page() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={() => setCount(count + 1)}>
+        Click
+      </button>
+    </div>
+  );
+}
+
+
+| Code                                                | எதற்காக use பண்ணுவோம்?
+| --------------------------------------------------- | ---------------------------------------------------------------
+| `"use client";`                                     | Browser-ல் interactive functionality / hooks use செய்ய
+| `import Link from "next/link";`                     | ஒரு page-லிருந்து இன்னொரு page-க்கு navigation செய்ய
+| `<Link href="/about">About</Link>`                  | About page-க்கு செல்ல
+| `import { usePathname } from "next/navigation";`    | இப்போது எந்த URL/page-ல் இருக்கிறோம் என்பதை தெரிந்துகொள்ள
+| `const pathname = usePathname();`                   | Current path-ஐ variable-ல் பெற
+| `className={...}`                                   | HTML/element-க்கு CSS class கொடுக்க
+| `className={pathname === "/about" ? "active" : ""}` | About page active என்றால் மட்டும் `active` class கொடுக்க
+| `export default function Header()`                  | Header component உருவாக்கி export செய்ய
+| `<Header />`                                        | Header component-ஐ page-ல் காட்ட
+| `import Header from "../../components/Header";`     | வேறு folder-ல் இருக்கும் Header component-ஐ page-க்கு கொண்டு வர
+| `href="/services"`                                  | Services page-க்கு செல்லும் path
+| `import "./header.css";`                            | Header-க்கு தேவையான CSS file-ஐ connect செய்ய
+| `<main>`                                            | Page-ன் main content வைக்க
+| `<h1>`                                              | Main heading                                                    
+| `<p>`                                               | Paragraph/text  
+
+
+
+const		Value store செய்ய	மாற்ற வேண்டாத value
+let		Value store செய்ய	மாற்றக்கூடிய value
+function	ஒரு வேலை செய்ய		Code-ஐ ஒரு group-ஆ வைத்துக்கொள்ள
+return		UI கொடுக்க		என்ன display ஆகணும்
+if		Condition check		இது நடந்தால் இதை செய்
+array []	பல values store		List
+object {}	ஒரு item-ன் details	Details
+.map()		List-ஐ UI-ஆக காட்ட	ஒவ்வொன்றாக display
+import		வேறு file-ஐ கொண்டு வர	Connect
+export		File-லிருந்து வெளியே கொடுக்க	Share
+Link		Page navigation		ஒரு page-லிருந்து இன்னொரு page
+useState	UI value change செய்ய	Value remember + update
+useEffect	ஒரு வேலை automatically செய்ய	Side effect
+usePathname	Current URL தெரிந்துகொள்ள -	இப்போது எந்த page?
+"use client"	Browser-side features use செய்ய	- Client component
+className	CSS connect செய்ய	Style apply
+onClick		Click action		Button click
+onChange	Input change		User typing
+onSubmit	Form submit		Form send
+{ } in JSX	JavaScript value காட்ட	JS-ஐ UI-க்குள் use செய்ய                                               
